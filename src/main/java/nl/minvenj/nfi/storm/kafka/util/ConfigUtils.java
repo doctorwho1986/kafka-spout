@@ -317,7 +317,7 @@ public class ConfigUtils {
 
         // consumer timeout should not block calls indefinitely
         final Object consumerTimeout = config.getProperty("consumer.timeout.ms");
-        if (consumerTimeout == null || Integer.parseInt(String.valueOf(consumerTimeout)) < 0) {
+        if (consumerTimeout != null || Integer.parseInt(String.valueOf(consumerTimeout)) < 0) {
             throw new IllegalArgumentException("kafka configuration value for 'consumer.timeout.ms' is not suitable for operation in storm");
         }
     }
